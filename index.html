@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Orofacial Clinic | Dentistry and facial aesthetics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F3FA; --surface:#FFFFFF; --ink:#1D1030; --muted:#64587A;
+  --lilac:#C8B3FF; --blush:#FFD3DE; --deep:#2B1450; --line:#E4DAF0;
+  --on-deep:#F7F3FA;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#140A24; --surface:#1E1233; --ink:#F4EEFB; --muted:#B3A6CC;
+    --lilac:#B49BFF; --blush:#FFB8CA; --deep:#C8B3FF; --line:#33224F; --on-deep:#1D1030;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#140A24; --surface:#1E1233; --ink:#F4EEFB; --muted:#B3A6CC;
+  --lilac:#B49BFF; --blush:#FFB8CA; --deep:#C8B3FF; --line:#33224F; --on-deep:#1D1030;
+}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:400 17px/1.55 "Instrument Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Bricolage Grotesque","Instrument Sans",sans-serif;margin:0;letter-spacing:-.03em;line-height:1}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lilac);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+/* nav */
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+.logo{font:800 20px "Bricolage Grotesque",sans-serif;letter-spacing:-.03em;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:30px;height:30px;border-radius:50% 50% 50% 8px;background:linear-gradient(135deg,var(--lilac),var(--blush));display:inline-block}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;background:var(--ink);color:var(--bg);font-weight:600;text-decoration:none;font-size:15px;border:0;cursor:pointer;transition:transform .2s}
+.pill:hover{transform:translateY(-2px)}
+.pill.alt{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+
+/* hero */
+.hero{padding:48px 0 70px;position:relative}
+.status{display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:14px;font-weight:500}
+.dot{width:9px;height:9px;border-radius:50%;background:#8a8099}
+.dot.on{background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 9px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+h1{font-size:clamp(54px,11.5vw,148px);font-weight:800;margin:26px 0 0;letter-spacing:-.055em}
+h1 .soft{display:block;color:transparent;-webkit-text-stroke:2px var(--ink)}
+.smile{display:block;width:min(420px,70%);margin:6px 0 0 2px}
+.smile path{stroke-dasharray:420;stroke-dashoffset:420;animation:draw 1.6s .3s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero p.lead{max-width:520px;font-size:19px;color:var(--muted);margin:26px 0 30px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.rating{position:absolute;right:0;top:70px;width:128px;height:128px;border-radius:50%;background:var(--blush);color:#2B1450;display:grid;place-items:center;text-align:center;transform:rotate(-10deg);font:800 38px/1 "Bricolage Grotesque";letter-spacing:-.04em}
+.rating small{display:block;font:500 12px/1.3 "Instrument Sans";letter-spacing:0;margin-top:4px}
+@media(max-width:700px){.rating{position:static;margin-top:28px;width:104px;height:104px;font-size:30px}}
+
+/* sections */
+section{padding:70px 0}
+h2{font-size:clamp(36px,6vw,70px);font-weight:800;max-width:14ch}
+.sub{color:var(--muted);max-width:480px;margin:16px 0 0}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:40px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;min-height:210px;grid-column:span 2}
+.card h3{font-size:27px;letter-spacing:-.03em}
+.card p{margin:12px 0 0;color:var(--muted);font-size:15.5px}
+.card.big{grid-column:span 3;background:var(--deep);color:var(--on-deep);border-color:transparent;min-height:260px}
+.card.big p{color:inherit;opacity:.8}
+.card.tint{background:var(--lilac);color:#1D1030;border-color:transparent;grid-column:span 3}
+.card.tint p{color:#3d2d5c}
+.card.pink{background:var(--blush);color:#1D1030;border-color:transparent}
+.card.pink p{color:#4b2f45}
+@media(max-width:860px){.svc{grid-template-columns:1fr 1fr}.card,.card.big,.card.tint{grid-column:span 1}.card.big{grid-column:span 2}}
+@media(max-width:560px){.svc{grid-template-columns:1fr}.card,.card.big,.card.tint{grid-column:span 1}}
+
+/* calm */
+.calm{background:var(--deep);color:var(--on-deep);border-radius:40px;padding:56px 36px;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.calm .sub{color:inherit;opacity:.8}
+.calm .pill{background:var(--on-deep);color:var(--deep);margin-top:26px}
+.orb-box{display:grid;place-items:center;min-height:260px}
+.orb{width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--lilac) 45%,var(--blush));display:grid;place-items:center;color:#2B1450;font:600 15px "Instrument Sans";transition:transform 4s ease-in-out;box-shadow:0 0 70px rgba(200,179,255,.55)}
+.orb.in{transform:scale(2)}
+@media(max-width:760px){.calm{grid-template-columns:1fr;padding:40px 24px;border-radius:30px}}
+@media(prefers-reduced-motion:reduce){.orb{transition:none}.smile path{animation:none;stroke-dashoffset:0}.dot.on{animation:none}}
+
+/* hours + contact */
+.info{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:40px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:32px}
+.box h3{font-size:26px;margin-bottom:18px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid var(--line)}
+.row.today{font-weight:600}
+.row.closed span:last-child{color:var(--muted)}
+.phone{font:800 clamp(30px,5vw,44px) "Bricolage Grotesque";letter-spacing:-.04em;text-decoration:none;display:block;margin:6px 0 20px}
+@media(max-width:760px){.info{grid-template-columns:1fr}}
+footer{padding:36px 0 50px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="logo" href="#top"><i></i>The Orofacial Clinic</a>
+    <a class="pill" href="tel:+917996504220">Call now</a>
+  </nav>
+
+  <header class="hero" id="top">
+    <span class="status"><span class="dot" id="dot"></span><span id="stext">Checking hours…</span></span>
+    <h1>Smile like<span class="soft">you mean it.</span></h1>
+    <svg class="smile" viewBox="0 0 420 60" fill="none" aria-hidden="true"><path d="M6 14 C 110 70, 310 70, 414 14" stroke="#C8B3FF" stroke-width="12" stroke-linecap="round"/></svg>
+    <p class="lead">Advanced dentistry and facial aesthetics under one calm roof. Implants, smile makeovers and anti-aging care, minus the dental dread.</p>
+    <div class="cta">
+      <a class="pill" href="tel:+917996504220">Book: +91 79965 04220</a>
+      <a class="pill alt" href="#care">See treatments</a>
+    </div>
+    <div class="rating" aria-label="Rated 5.0">5.0<small>Patient<br>rating</small></div>
+  </header>
+</div>
+
+<section id="care">
+  <div class="wrap">
+    <h2>What we do best</h2>
+    <p class="sub">Dental work and facial aesthetics, planned together by one team.</p>
+    <div class="svc">
+      <div class="card big"><h3>Dental implants</h3><p>Permanent replacements for missing teeth that look, feel and work like your own.</p></div>
+      <div class="card tint"><h3>Smile makeovers</h3><p>A custom plan for the shape, shade and symmetry you want to see in the mirror.</p></div>
+      <div class="card"><h3>Wisdom tooth extractions</h3><p>Surgical care in a space patients say helped them relax beforehand.</p></div>
+      <div class="card pink"><h3>Anti-aging therapies</h3><p>Facial aesthetic treatments that keep you looking fresh and like yourself.</p></div>
+      <div class="card"><h3>Orofacial care</h3><p>Teeth, jaw and face treated as one connected system.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="calm">
+      <div>
+        <h2>Nervous? Same.</h2>
+        <p class="sub">Patients tell us the clinic’s ambience helped them calm down before surgery. Try a one-minute breather now, and bring that energy with you.</p>
+        <button class="pill" id="breathe" type="button">Start breathing</button>
+      </div>
+      <div class="orb-box"><div class="orb" id="orb" role="status" aria-live="polite">Ready</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Come by</h2>
+    <div class="info">
+      <div class="box">
+        <h3>Opening hours</h3>
+        <div id="hours"></div>
+      </div>
+      <div class="box">
+        <h3>Book your visit</h3>
+        <p style="margin:0;color:var(--muted)">Call us to pick a time that works for you.</p>
+        <a class="phone" href="tel:+917996504220">+91 79965 04220</a>
+        <a class="pill" href="tel:+917996504220">Call the clinic</a>
+      </div>
+    </div>
+    <footer><span>© 2026 The Orofacial Clinic</span><span>Dental clinic · Rated 5.0</span></footer>
+  </div>
+</section>
+
+<script>
+(function(){
+  var days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  function ist(){
+    try{
+      var p=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Kolkata",weekday:"long",hour:"numeric",minute:"numeric",hour12:false}).formatToParts(new Date()),o={};
+      p.forEach(function(x){o[x.type]=x.value});
+      return {d:days.indexOf(o.weekday),m:(parseInt(o.hour,10)%24)*60+parseInt(o.minute,10)};
+    }catch(e){var n=new Date();return {d:n.getDay(),m:n.getHours()*60+n.getMinutes()}}
+  }
+  var t=ist(),open=t.d!==0&&t.m>=630&&t.m<1230;
+  document.getElementById("dot").className="dot"+(open?" on":"");
+  document.getElementById("stext").textContent=open?"Open now · closes 8:30 pm":(t.d===0?"Closed today · opens Monday 10:30 am":"Closed now · opens 10:30 am");
+  var h="";
+  days.slice(1).concat(days[0]).forEach(function(n){
+    var s=n==="Sunday";
+    h+='<div class="row'+(n===days[t.d]?" today":"")+(s?" closed":"")+'"><span>'+n+'</span><span>'+(s?"Closed":"10:30 am – 8:30 pm")+'</span></div>';
+  });
+  document.getElementById("hours").innerHTML=h;
+
+  var orb=document.getElementById("orb"),btn=document.getElementById("breathe"),timer=null,n=0;
+  btn.addEventListener("click",function(){
+    if(timer){clearInterval(timer);timer=null;orb.className="orb";orb.textContent="Ready";btn.textContent="Start breathing";return}
+    btn.textContent="Stop";n=0;
+    function tick(){var inh=n%2===0;orb.className="orb"+(inh?" in":"");orb.textContent=inh?"Breathe in":"Breathe out";n++;if(n>14){clearInterval(timer);timer=null;orb.className="orb";orb.textContent="Nicely done";btn.textContent="Go again"}}
+    tick();timer=setInterval(tick,4000);
+  });
+})();
+</script>
+</body>
+</html>
